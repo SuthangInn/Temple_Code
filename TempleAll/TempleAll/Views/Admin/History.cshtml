@@ -1,0 +1,30 @@
+﻿@model List<TempleAll.History>
+
+@{
+    ViewBag.Title = "History";
+}
+
+<h2>History</h2>
+
+<table>
+@*<p>
+    @Html.ActionLink("แก้ไข","AdminEditHistory")
+</p>*@
+
+@foreach (var item in Model) {
+    <tr>
+          <td>
+          <img src="data:image/png;base64,@Convert.ToBase64String(Model[0].ImageData,0,Model[0].ImageData.Length)" width="100" />
+          </td>
+            
+        <td>
+            @Html.DisplayFor(modelItem => item.Description)
+        </td>
+        <td>
+            @Html.ActionLink("แก้ไข", "AdminEditHistory", new { id=item.HistoryID })
+        </td>
+       
+    </tr>
+}
+
+</table>

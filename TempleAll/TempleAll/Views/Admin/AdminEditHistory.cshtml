@@ -1,0 +1,23 @@
+﻿@model TempleAll.History
+
+@{
+    ViewBag.Title = "AdminEditHistory";
+}
+
+<h2>AdminEditHistory</h2>
+
+@using (Html.BeginForm("AdminEditHistory", "Admin",
+    FormMethod.Post, new { enctype = "multipart/form-data" }))
+{     
+    @Html.EditorForModel() 
+   
+    <td>Select File : </td>
+     @Html.TextBoxFor(Model=> Model.File, new{type="file"})
+     @Html.ValidationMessage("CustomError")
+                        
+     <input type="submit" value="ตกลง" />   
+}
+
+            @section Scripts {
+                @Scripts.Render("~/bundles/jqueryval")
+            }
