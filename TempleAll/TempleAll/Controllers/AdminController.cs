@@ -19,6 +19,7 @@ namespace TempleAll.Controllers
 
         private TempledbEntities Historycontext = new TempledbEntities();
         private KnowledgedbEntities Knowledgecontext = new KnowledgedbEntities();
+	private ActivitydbEntities Activitycontext = new ActivitydbEntities();
 
         ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -126,6 +127,60 @@ namespace TempleAll.Controllers
                 Knowledgecontext.SaveChanges();
             }
             return RedirectToAction("AdminKnowledge");
+        }
+
+        public ViewResult AdminActivity()
+        {
+            List<Activity> all = new List<Activity>();
+
+            using (ActivitydbEntities adb = new ActivitydbEntities())
+            {
+                all = adb.Activities.ToList();
+            }
+            return View(all);
+        }
+
+        public ViewResult AdminEditActivity(int id)
+        {
+            return View("AdminEditActivity", Activitycontext.Activities.Find(id));
+        }
+
+        [HttpPost]
+        public ActionResult AdminEditActivity(Activity a)
+        {
+            Activitycontext.Entry(a).State = EntityState.Modified;
+            Activitycontext.SaveChanges();
+
+            return RedirectToAction("AdminActivity");
+        }
+
+        public ViewResult CreateActivity()
+        {
+            return View("CreateActivity", new Activity());
+        }
+
+        [HttpPost]
+        public ActionResult CreateActivity(Activity a)
+        {
+            Activitycontext.Entry(a).State = EntityState.Added;
+            Activitycontext.SaveChanges();
+
+            return RedirectToAction("AdminActivity");
+        }
+
+        public ActionResult DeleteActivity(int id)
+        {
+            Activity a = Activitycontext.Activities.Find(id);
+            if (a == null)
+            {
+                return HttpNotFound();
+            }
+            else
+            {
+                Activitycontext.Activities.Remove(a);
+                Activitycontext.SaveChanges();
+            }
+            return RedirectToAction("AdminActivity");
         }
    }
 }

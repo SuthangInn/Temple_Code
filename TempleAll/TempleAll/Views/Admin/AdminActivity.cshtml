@@ -1,0 +1,32 @@
+﻿@model List<TempleAll.Activity>
+
+@{
+    ViewBag.Title = "AdminActivity";
+}
+
+<h2>AdminActivity</h2>
+
+<p>
+    @Html.ActionLink("เพิ่มกิจกรรม", "CreateActivity")
+</p>
+<table>
+    
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Description)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Type)
+        </td>
+        <td>
+            @Html.ActionLink("แก้ไข", "AdminEditActivity", new { id=item.ActivityID }) |
+            @Html.ActionLink("Delete", "DeleteActivity", new { id=item.ActivityID })
+        </td>
+    </tr>
+}
+
+</table>

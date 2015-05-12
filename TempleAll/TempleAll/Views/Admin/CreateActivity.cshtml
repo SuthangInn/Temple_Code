@@ -1,0 +1,21 @@
+﻿@model TempleAll.Activity
+
+@{
+    ViewBag.Title = "CreateActivity";
+}
+
+<h2>CreateActivity</h2>
+
+@using (Html.BeginForm("CreateActivity", "Admin",
+    FormMethod.Post, new { enctype = "multipart/form-data" }))
+{     
+    @Html.EditorForModel()
+
+    <h4>**กรุณากรอก กิจกรรมประจำปี หรือ กิจกรรมทั่วไป</h4>
+    
+    <input type="submit" value="ตกลง" />   
+}
+
+            @section Scripts {
+                @Scripts.Render("~/bundles/jqueryval")
+            }
