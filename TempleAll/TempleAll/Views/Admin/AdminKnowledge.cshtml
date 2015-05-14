@@ -1,0 +1,29 @@
+﻿@model List<TempleAll.Knowledge>
+
+@{
+    ViewBag.Title = "AdminKnowledge";
+}
+
+<h2>Knowledge</h2>
+
+<p>
+    @Html.ActionLink("เพิ่มสาระธรรม", "CreateKnowledge")
+</p>
+<table>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Description)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Date)
+        </td>
+        <td>
+            @Html.ActionLink("แก้ไข", "AdminEditKnowledge", new { id=item.KnowledgeID }) |
+            @Html.ActionLink("ลบ", "DeleteKnowledge", new { id=item.KnowledgeID })
+        </td>
+    </tr>
+}
+
+</table>
