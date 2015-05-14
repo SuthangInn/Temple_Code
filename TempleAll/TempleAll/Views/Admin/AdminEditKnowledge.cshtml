@@ -1,0 +1,18 @@
+﻿@model TempleAll.Knowledge
+
+@{
+    ViewBag.Title = "AdminEditKnowledge";
+}
+
+<h2>AdminEditKnowledge</h2>
+
+@using (Html.BeginForm("AdminEditKnowledge", "Admin",
+    FormMethod.Post, new { enctype = "multipart/form-data" }))
+{     
+    @Html.EditorForModel()
+    <input type="submit" value="ตกลง" />   
+}
+
+            @section Scripts {
+                @Scripts.Render("~/bundles/jqueryval")
+            }
