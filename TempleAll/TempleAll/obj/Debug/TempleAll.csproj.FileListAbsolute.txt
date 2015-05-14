@@ -41,3 +41,4 @@ d:\documents\visual studio 2012\Projects\TempleAll\TempleAll\bin\DotNetOpenAuth.
 d:\documents\visual studio 2012\Projects\TempleAll\TempleAll\obj\Debug\TempleAll.dll
 d:\documents\visual studio 2012\Projects\TempleAll\TempleAll\obj\Debug\TempleAll.pdb
 d:\documents\visual studio 2012\Projects\TempleAll\TempleAll\obj\Debug\TempleAll.csprojResolveAssemblyReference.cache
+C:\Users\Tangta\Documents\Temple_Code\TempleAll\TempleAll\obj\Debug\TempleAll.csprojResolveAssemblyReference.cache

@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="KnowledgedbModelStoreContainer" CdmEntityContainer="KnowledgedbEntities">
+    <EntitySetMapping Name="Knowledges">
+      <EntityTypeMapping TypeName="KnowledgedbModel.Knowledge">
+        <MappingFragment StoreEntitySet="Knowledge">
+          <ScalarProperty Name="KnowledgeID" ColumnName="KnowledgeID" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
