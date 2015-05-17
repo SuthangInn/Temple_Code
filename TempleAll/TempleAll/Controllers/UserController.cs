@@ -46,6 +46,37 @@ namespace TempleAll.Controllers
             contactTopiccontext.SaveChanges();
             return RedirectToAction("ContactTopic");
         }
+
+	public ViewResult History() 
+        {
+            List<History> all = new List<History>();
+            using (TempledbEntities dc = new TempledbEntities())
+            { all = dc.Histories.ToList();  }
+            return View(all);
+        }
+
+        ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+        public ViewResult Knowledge()
+        {
+            List<Knowledge> all = new List<Knowledge>();
+            using (KnowledgedbEntities kdb = new KnowledgedbEntities())
+            { all = kdb.Knowledges.ToList(); }
+            return View(all); 
+        }
+
+        ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+        public ViewResult Activity()
+        {
+            List<Activity> all = new List<Activity>();
+            using (ActivitydbEntities adb = new ActivitydbEntities())
+            { all = adb.Activities.ToList(); }
+            return View(all);
+        }
+
+        ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 	
     }
 }
