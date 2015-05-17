@@ -182,6 +182,49 @@ namespace TempleAll.Controllers
             }
             return RedirectToAction("AdminActivity");
         }
+
+public ViewResult AdminContact()
+        {
+            List<ContactTopic> allTopic = new List<ContactTopic>();
+
+            using (ContactTopicdbEntities ctdb = new ContactTopicdbEntities())
+            {
+                allTopic = ctdb.ContactTopics.ToList();
+            }
+            return View(allTopic);
+        }
+
+      /*  public ViewResult AdminTempleContact()
+        {
+            List<Contact> all = new List<Contact>();
+
+            using (ContactdbEntities cdb = new ContactdbEntities())
+            {
+                all = cdb.Contacts.ToList();
+            }
+            return View(all);
+        }
+*/
+        public ViewResult AdminEditContact()
+        {
+            return View("AdminEditContact", Contactcontext.Contacts.Find(1));
+        }
+
+        [HttpPost]
+        public ActionResult AdminEditContact(Contact c)
+        {
+            Contactcontext.Entry(c).State = EntityState.Modified;
+            Contactcontext.SaveChanges();
+
+            return RedirectToAction("AdminContact");
+        }
+
+        public ViewResult ContactTopicDetails(int id)
+        {
+            ContactTopic ct;
+            ct = ContactTopiccontext.ContactTopics.Where(c => c.ContactTopicID == id).FirstOrDefault<ContactTopic>();
+            return View(ct);
+	}
    }
 }
 
